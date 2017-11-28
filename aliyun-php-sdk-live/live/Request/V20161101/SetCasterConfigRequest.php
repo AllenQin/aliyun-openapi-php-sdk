@@ -36,7 +36,7 @@ class SetCasterConfigRequest extends RpcAcsRequest
 
     function __construct()
     {
-        parent::__construct("live", "2016-11-01", "SetCasterConfig");
+        parent::__construct("Live", "2016-11-01", "SetCasterConfig");
         $this->setMethod("POST");
     }
 

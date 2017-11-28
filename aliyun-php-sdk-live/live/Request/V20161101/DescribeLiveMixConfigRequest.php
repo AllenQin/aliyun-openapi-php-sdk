@@ -29,7 +29,7 @@ class DescribeLiveMixConfigRequest extends RpcAcsRequest
 
     function __construct()
     {
-        parent::__construct("live", "2016-11-01", "DescribeLiveMixConfig");
+        parent::__construct("Live", "2016-11-01", "DescribeLiveMixConfig");
         $this->setMethod("POST");
     }
 

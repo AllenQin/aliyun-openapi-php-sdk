@@ -1027,7 +1027,7 @@
             <Product><ProductName>Alert</ProductName><DomainName>alert.aliyuncs.com</DomainName></Product>
             <Product><ProductName>Oms</ProductName><DomainName>oms.aliyuncs.com</DomainName></Product>
             <Product><ProductName>Ubsms</ProductName><DomainName>ubsms.aliyuncs.com</DomainName></Product>
-            <Product><ProductName>live</ProductName><DomainName>live.aliyuncs.com</DomainName></Product>
+            <Product><ProductName>Live</ProductName><DomainName>live.aliyuncs.com</DomainName></Product>
             <Product><ProductName>Ecs</ProductName><DomainName>ecs-cn-hangzhou.aliyuncs.com</DomainName></Product>
             <Product><ProductName>Ace-ops</ProductName><DomainName>ace-ops.cn-hangzhou.aliyuncs.com</DomainName></Product>
             <Product><ProductName>Vpc</ProductName><DomainName>vpc.aliyuncs.com</DomainName></Product>

@@ -29,7 +29,7 @@ class ImagePornDetectionRequest extends RpcAcsRequest
 
     function __construct()
     {
-        parent::__construct("live", "2016-11-01", "ImagePornDetection");
+        parent::__construct("Live", "2016-11-01", "ImagePornDetection");
         $this->setMethod("POST");
     }
 

@@ -36,7 +36,7 @@ class CreateLiveStreamRecordIndexFilesRequest extends RpcAcsRequest
 
     function __construct()
     {
-        parent::__construct("live", "2016-11-01", "CreateLiveStreamRecordIndexFiles");
+        parent::__construct("Live", "2016-11-01", "CreateLiveStreamRecordIndexFiles");
         $this->setMethod("POST");
     }
 

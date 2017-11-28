@@ -30,7 +30,7 @@ class DeleteCasterRequest extends RpcAcsRequest
 
     function __construct()
     {
-        parent::__construct("live", "2016-11-01", "DeleteCaster");
+        parent::__construct("Live", "2016-11-01", "DeleteCaster");
         $this->setMethod("POST");
     }
 

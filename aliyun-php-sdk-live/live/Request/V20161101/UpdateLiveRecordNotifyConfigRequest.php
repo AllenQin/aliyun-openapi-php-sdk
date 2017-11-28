@@ -31,7 +31,7 @@ class UpdateLiveRecordNotifyConfigRequest extends RpcAcsRequest
 
     function __construct()
     {
-        parent::__construct("live", "2016-11-01", "UpdateLiveRecordNotifyConfig");
+        parent::__construct("Live", "2016-11-01", "UpdateLiveRecordNotifyConfig");
         $this->setMethod("POST");
     }
 

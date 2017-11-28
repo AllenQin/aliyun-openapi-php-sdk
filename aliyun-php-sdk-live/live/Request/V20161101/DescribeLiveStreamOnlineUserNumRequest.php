@@ -34,7 +34,7 @@ class DescribeLiveStreamOnlineUserNumRequest extends RpcAcsRequest
 
     function __construct()
     {
-        parent::__construct("live", "2016-11-01", "DescribeLiveStreamOnlineUserNum");
+        parent::__construct("Live", "2016-11-01", "DescribeLiveStreamOnlineUserNum");
         $this->setMethod("POST");
     }
 

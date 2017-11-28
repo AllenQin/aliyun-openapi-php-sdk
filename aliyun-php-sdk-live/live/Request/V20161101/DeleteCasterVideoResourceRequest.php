@@ -31,7 +31,7 @@ class DeleteCasterVideoResourceRequest extends RpcAcsRequest
 
     function __construct()
     {
-        parent::__construct("live", "2016-11-01", "DeleteCasterVideoResource");
+        parent::__construct("Live", "2016-11-01", "DeleteCasterVideoResource");
         $this->setMethod("POST");
     }
 

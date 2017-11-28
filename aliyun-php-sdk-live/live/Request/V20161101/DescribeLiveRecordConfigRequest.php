@@ -33,7 +33,7 @@ class DescribeLiveRecordConfigRequest extends RpcAcsRequest
 
     function __construct()
     {
-        parent::__construct("live", "2016-11-01", "DescribeLiveRecordConfig");
+        parent::__construct("Live", "2016-11-01", "DescribeLiveRecordConfig");
         $this->setMethod("POST");
     }
 

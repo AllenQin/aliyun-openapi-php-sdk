@@ -29,7 +29,7 @@ class DescribeLiveStreamsBlockListRequest extends RpcAcsRequest
 
     function __construct()
     {
-        parent::__construct("live", "2016-11-01", "DescribeLiveStreamsBlockList");
+        parent::__construct("Live", "2016-11-01", "DescribeLiveStreamsBlockList");
         $this->setMethod("POST");
     }
 
