@@ -19,78 +19,87 @@
  */
 namespace Live\Request\V20161101;
 
-class StartMultipleStreamMixServiceRequest extends \RpcAcsRequest
+use Aliyun\CoreRpcAcsRequest;
+
+class StartMultipleStreamMixServiceRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("live", "2016-11-01", "StartMultipleStreamMixService");
-		$this->setMethod("POST");
-	}
+    private $appName;
+    private $securityToken;
+    private $domainName;
+    private $mixTemplate;
+    private $ownerId;
+    private $streamName;
 
-	private  $appName;
+    function __construct()
+    {
+        parent::__construct("live", "2016-11-01", "StartMultipleStreamMixService");
+        $this->setMethod("POST");
+    }
 
-	private  $securityToken;
+    public function getAppName()
+    {
+        return $this->appName;
+    }
 
-	private  $domainName;
+    public function setAppName($appName)
+    {
+        $this->appName = $appName;
+        $this->queryParameters["AppName"] = $appName;
+    }
 
-	private  $mixTemplate;
+    public function getSecurityToken()
+    {
+        return $this->securityToken;
+    }
 
-	private  $ownerId;
+    public function setSecurityToken($securityToken)
+    {
+        $this->securityToken = $securityToken;
+        $this->queryParameters["SecurityToken"] = $securityToken;
+    }
 
-	private  $streamName;
+    public function getDomainName()
+    {
+        return $this->domainName;
+    }
 
-	public function getAppName() {
-		return $this->appName;
-	}
+    public function setDomainName($domainName)
+    {
+        $this->domainName = $domainName;
+        $this->queryParameters["DomainName"] = $domainName;
+    }
 
-	public function setAppName($appName) {
-		$this->appName = $appName;
-		$this->queryParameters["AppName"]=$appName;
-	}
+    public function getMixTemplate()
+    {
+        return $this->mixTemplate;
+    }
 
-	public function getSecurityToken() {
-		return $this->securityToken;
-	}
+    public function setMixTemplate($mixTemplate)
+    {
+        $this->mixTemplate = $mixTemplate;
+        $this->queryParameters["MixTemplate"] = $mixTemplate;
+    }
 
-	public function setSecurityToken($securityToken) {
-		$this->securityToken = $securityToken;
-		$this->queryParameters["SecurityToken"]=$securityToken;
-	}
+    public function getOwnerId()
+    {
+        return $this->ownerId;
+    }
 
-	public function getDomainName() {
-		return $this->domainName;
-	}
+    public function setOwnerId($ownerId)
+    {
+        $this->ownerId = $ownerId;
+        $this->queryParameters["OwnerId"] = $ownerId;
+    }
 
-	public function setDomainName($domainName) {
-		$this->domainName = $domainName;
-		$this->queryParameters["DomainName"]=$domainName;
-	}
+    public function getStreamName()
+    {
+        return $this->streamName;
+    }
 
-	public function getMixTemplate() {
-		return $this->mixTemplate;
-	}
+    public function setStreamName($streamName)
+    {
+        $this->streamName = $streamName;
+        $this->queryParameters["StreamName"] = $streamName;
+    }
 
-	public function setMixTemplate($mixTemplate) {
-		$this->mixTemplate = $mixTemplate;
-		$this->queryParameters["MixTemplate"]=$mixTemplate;
-	}
-
-	public function getOwnerId() {
-		return $this->ownerId;
-	}
-
-	public function setOwnerId($ownerId) {
-		$this->ownerId = $ownerId;
-		$this->queryParameters["OwnerId"]=$ownerId;
-	}
-
-	public function getStreamName() {
-		return $this->streamName;
-	}
-
-	public function setStreamName($streamName) {
-		$this->streamName = $streamName;
-		$this->queryParameters["StreamName"]=$streamName;
-	}
-	
 }

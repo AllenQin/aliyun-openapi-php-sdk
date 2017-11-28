@@ -19,67 +19,75 @@
  */
 namespace Live\Request\V20161101;
 
-class DeleteCasterLayoutRequest extends \RpcAcsRequest
+use Aliyun\CoreRpcAcsRequest;
+
+class DeleteCasterLayoutRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("live", "2016-11-01", "DeleteCasterLayout");
-		$this->setMethod("POST");
-	}
+    private $securityToken;
+    private $casterId;
+    private $ownerId;
+    private $version;
+    private $layoutId;
 
-	private  $securityToken;
+    function __construct()
+    {
+        parent::__construct("live", "2016-11-01", "DeleteCasterLayout");
+        $this->setMethod("POST");
+    }
 
-	private  $casterId;
+    public function getSecurityToken()
+    {
+        return $this->securityToken;
+    }
 
-	private  $ownerId;
+    public function setSecurityToken($securityToken)
+    {
+        $this->securityToken = $securityToken;
+        $this->queryParameters["SecurityToken"] = $securityToken;
+    }
 
-	private  $version;
+    public function getCasterId()
+    {
+        return $this->casterId;
+    }
 
-	private  $layoutId;
+    public function setCasterId($casterId)
+    {
+        $this->casterId = $casterId;
+        $this->queryParameters["CasterId"] = $casterId;
+    }
 
-	public function getSecurityToken() {
-		return $this->securityToken;
-	}
+    public function getOwnerId()
+    {
+        return $this->ownerId;
+    }
 
-	public function setSecurityToken($securityToken) {
-		$this->securityToken = $securityToken;
-		$this->queryParameters["SecurityToken"]=$securityToken;
-	}
+    public function setOwnerId($ownerId)
+    {
+        $this->ownerId = $ownerId;
+        $this->queryParameters["OwnerId"] = $ownerId;
+    }
 
-	public function getCasterId() {
-		return $this->casterId;
-	}
+    public function getVersion()
+    {
+        return $this->version;
+    }
 
-	public function setCasterId($casterId) {
-		$this->casterId = $casterId;
-		$this->queryParameters["CasterId"]=$casterId;
-	}
+    public function setVersion($version)
+    {
+        $this->version = $version;
+        $this->queryParameters["Version"] = $version;
+    }
 
-	public function getOwnerId() {
-		return $this->ownerId;
-	}
+    public function getLayoutId()
+    {
+        return $this->layoutId;
+    }
 
-	public function setOwnerId($ownerId) {
-		$this->ownerId = $ownerId;
-		$this->queryParameters["OwnerId"]=$ownerId;
-	}
+    public function setLayoutId($layoutId)
+    {
+        $this->layoutId = $layoutId;
+        $this->queryParameters["LayoutId"] = $layoutId;
+    }
 
-	public function getVersion() {
-		return $this->version;
-	}
-
-	public function setVersion($version) {
-		$this->version = $version;
-		$this->queryParameters["Version"]=$version;
-	}
-
-	public function getLayoutId() {
-		return $this->layoutId;
-	}
-
-	public function setLayoutId($layoutId) {
-		$this->layoutId = $layoutId;
-		$this->queryParameters["LayoutId"]=$layoutId;
-	}
-	
 }

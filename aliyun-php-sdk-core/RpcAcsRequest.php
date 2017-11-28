@@ -24,29 +24,16 @@ abstract class RpcAcsRequest extends AcsRequest
     private $dateTimeFormat = 'Y-m-d\TH:i:s\Z';
     private $domainParameters = array();
 
-    function  __construct($product, $version, $actionName, $locationServiceCode = null, $locationEndpointType = "openAPI")
+    function __construct($product, $version, $actionName, $locationServiceCode = null, $locationEndpointType = "openAPI")
     {
         parent::__construct($product, $version, $actionName, $locationServiceCode, $locationEndpointType);
         $this->initialize();
     }
-    
+
     private function initialize()
     {
         $this->setMethod("GET");
         $this->setAcceptFormat("JSON");
-    }
-
-    private function prepareValue($value)
-    {
-        if (is_bool($value)) {
-            if ($value) {
-                return "true";
-            } else {
-                return "false";
-            }
-        } else {
-            return $value;
-        }
     }
 
     public function composeUrl($iSigner, $credential, $domain)
@@ -66,13 +53,13 @@ abstract class RpcAcsRequest extends AcsRequest
         $apiParams["Version"] = $this->getVersion();
         $apiParams["Signature"] = $this->computeSignature($apiParams, $credential->getAccessSecret(), $iSigner);
         if (parent::getMethod() == "POST") {
-            $requestUrl = $this->getProtocol()."://". $domain . "/";
+            $requestUrl = $this->getProtocol() . "://" . $domain . "/";
             foreach ($apiParams as $apiParamKey => $apiParamValue) {
                 $this->putDomainParameters($apiParamKey, $apiParamValue);
             }
             return $requestUrl;
         } else {
-            $requestUrl = $this->getProtocol()."://". $domain . "/?";
+            $requestUrl = $this->getProtocol() . "://" . $domain . "/?";
 
             foreach ($apiParams as $apiParamKey => $apiParamValue) {
                 $requestUrl .= "$apiParamKey=" . urlencode($apiParamValue) . "&";
@@ -80,20 +67,33 @@ abstract class RpcAcsRequest extends AcsRequest
             return substr($requestUrl, 0, -1);
         }
     }
-    
+
+    private function prepareValue($value)
+    {
+        if (is_bool($value)) {
+            if ($value) {
+                return "true";
+            } else {
+                return "false";
+            }
+        } else {
+            return $value;
+        }
+    }
+
     private function computeSignature($parameters, $accessKeySecret, $iSigner)
     {
         ksort($parameters);
         $canonicalizedQueryString = '';
         foreach ($parameters as $key => $value) {
-            $canonicalizedQueryString .= '&' . $this->percentEncode($key). '=' . $this->percentEncode($value);
+            $canonicalizedQueryString .= '&' . $this->percentEncode($key) . '=' . $this->percentEncode($value);
         }
-        $stringToSign = parent::getMethod().'&%2F&' . $this->percentencode(substr($canonicalizedQueryString, 1));
-        $signature = $iSigner->signString($stringToSign, $accessKeySecret."&");
+        $stringToSign = parent::getMethod() . '&%2F&' . $this->percentencode(substr($canonicalizedQueryString, 1));
+        $signature = $iSigner->signString($stringToSign, $accessKeySecret . "&");
 
         return $signature;
     }
-    
+
     protected function percentEncode($str)
     {
         $res = urlencode($str);
@@ -102,14 +102,14 @@ abstract class RpcAcsRequest extends AcsRequest
         $res = preg_replace('/%7E/', '~', $res);
         return $res;
     }
-    
-    public function getDomainParameter()
-    {
-        return $this->domainParameters;
-    }
-    
+
     public function putDomainParameters($name, $value)
     {
         $this->domainParameters[$name] = $value;
+    }
+
+    public function getDomainParameter()
+    {
+        return $this->domainParameters;
     }
 }

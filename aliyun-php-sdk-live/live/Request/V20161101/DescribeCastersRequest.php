@@ -19,122 +19,135 @@
  */
 namespace Live\Request\V20161101;
 
-class DescribeCastersRequest extends \RpcAcsRequest
+use Aliyun\CoreRpcAcsRequest;
+
+class DescribeCastersRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("live", "2016-11-01", "DescribeCasters");
-		$this->setMethod("POST");
-	}
+    private $securityToken;
+    private $casterName;
+    private $casterId;
+    private $pageSize;
+    private $endTime;
+    private $startTime;
+    private $ownerId;
+    private $pageNum;
+    private $version;
+    private $status;
 
-	private  $securityToken;
+    function __construct()
+    {
+        parent::__construct("live", "2016-11-01", "DescribeCasters");
+        $this->setMethod("POST");
+    }
 
-	private  $casterName;
+    public function getSecurityToken()
+    {
+        return $this->securityToken;
+    }
 
-	private  $casterId;
+    public function setSecurityToken($securityToken)
+    {
+        $this->securityToken = $securityToken;
+        $this->queryParameters["SecurityToken"] = $securityToken;
+    }
 
-	private  $pageSize;
+    public function getCasterName()
+    {
+        return $this->casterName;
+    }
 
-	private  $endTime;
+    public function setCasterName($casterName)
+    {
+        $this->casterName = $casterName;
+        $this->queryParameters["CasterName"] = $casterName;
+    }
 
-	private  $startTime;
+    public function getCasterId()
+    {
+        return $this->casterId;
+    }
 
-	private  $ownerId;
+    public function setCasterId($casterId)
+    {
+        $this->casterId = $casterId;
+        $this->queryParameters["CasterId"] = $casterId;
+    }
 
-	private  $pageNum;
+    public function getPageSize()
+    {
+        return $this->pageSize;
+    }
 
-	private  $version;
+    public function setPageSize($pageSize)
+    {
+        $this->pageSize = $pageSize;
+        $this->queryParameters["PageSize"] = $pageSize;
+    }
 
-	private  $status;
+    public function getEndTime()
+    {
+        return $this->endTime;
+    }
 
-	public function getSecurityToken() {
-		return $this->securityToken;
-	}
+    public function setEndTime($endTime)
+    {
+        $this->endTime = $endTime;
+        $this->queryParameters["EndTime"] = $endTime;
+    }
 
-	public function setSecurityToken($securityToken) {
-		$this->securityToken = $securityToken;
-		$this->queryParameters["SecurityToken"]=$securityToken;
-	}
+    public function getStartTime()
+    {
+        return $this->startTime;
+    }
 
-	public function getCasterName() {
-		return $this->casterName;
-	}
+    public function setStartTime($startTime)
+    {
+        $this->startTime = $startTime;
+        $this->queryParameters["StartTime"] = $startTime;
+    }
 
-	public function setCasterName($casterName) {
-		$this->casterName = $casterName;
-		$this->queryParameters["CasterName"]=$casterName;
-	}
+    public function getOwnerId()
+    {
+        return $this->ownerId;
+    }
 
-	public function getCasterId() {
-		return $this->casterId;
-	}
+    public function setOwnerId($ownerId)
+    {
+        $this->ownerId = $ownerId;
+        $this->queryParameters["OwnerId"] = $ownerId;
+    }
 
-	public function setCasterId($casterId) {
-		$this->casterId = $casterId;
-		$this->queryParameters["CasterId"]=$casterId;
-	}
+    public function getPageNum()
+    {
+        return $this->pageNum;
+    }
 
-	public function getPageSize() {
-		return $this->pageSize;
-	}
+    public function setPageNum($pageNum)
+    {
+        $this->pageNum = $pageNum;
+        $this->queryParameters["PageNum"] = $pageNum;
+    }
 
-	public function setPageSize($pageSize) {
-		$this->pageSize = $pageSize;
-		$this->queryParameters["PageSize"]=$pageSize;
-	}
+    public function getVersion()
+    {
+        return $this->version;
+    }
 
-	public function getEndTime() {
-		return $this->endTime;
-	}
+    public function setVersion($version)
+    {
+        $this->version = $version;
+        $this->queryParameters["Version"] = $version;
+    }
 
-	public function setEndTime($endTime) {
-		$this->endTime = $endTime;
-		$this->queryParameters["EndTime"]=$endTime;
-	}
+    public function getStatus()
+    {
+        return $this->status;
+    }
 
-	public function getStartTime() {
-		return $this->startTime;
-	}
+    public function setStatus($status)
+    {
+        $this->status = $status;
+        $this->queryParameters["Status"] = $status;
+    }
 
-	public function setStartTime($startTime) {
-		$this->startTime = $startTime;
-		$this->queryParameters["StartTime"]=$startTime;
-	}
-
-	public function getOwnerId() {
-		return $this->ownerId;
-	}
-
-	public function setOwnerId($ownerId) {
-		$this->ownerId = $ownerId;
-		$this->queryParameters["OwnerId"]=$ownerId;
-	}
-
-	public function getPageNum() {
-		return $this->pageNum;
-	}
-
-	public function setPageNum($pageNum) {
-		$this->pageNum = $pageNum;
-		$this->queryParameters["PageNum"]=$pageNum;
-	}
-
-	public function getVersion() {
-		return $this->version;
-	}
-
-	public function setVersion($version) {
-		$this->version = $version;
-		$this->queryParameters["Version"]=$version;
-	}
-
-	public function getStatus() {
-		return $this->status;
-	}
-
-	public function setStatus($status) {
-		$this->status = $status;
-		$this->queryParameters["Status"]=$status;
-	}
-	
 }

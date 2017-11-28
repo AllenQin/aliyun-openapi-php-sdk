@@ -19,111 +19,123 @@
  */
 namespace Live\Request\V20161101;
 
-class ModifyCasterVideoResourceRequest extends \RpcAcsRequest
+use Aliyun\CoreRpcAcsRequest;
+
+class ModifyCasterVideoResourceRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("live", "2016-11-01", "ModifyCasterVideoResource");
-		$this->setMethod("POST");
-	}
+    private $resourceId;
+    private $liveStreamUrl;
+    private $securityToken;
+    private $casterId;
+    private $resourceName;
+    private $repeatNum;
+    private $ownerId;
+    private $materialId;
+    private $version;
 
-	private  $resourceId;
+    function __construct()
+    {
+        parent::__construct("live", "2016-11-01", "ModifyCasterVideoResource");
+        $this->setMethod("POST");
+    }
 
-	private  $liveStreamUrl;
+    public function getResourceId()
+    {
+        return $this->resourceId;
+    }
 
-	private  $securityToken;
+    public function setResourceId($resourceId)
+    {
+        $this->resourceId = $resourceId;
+        $this->queryParameters["ResourceId"] = $resourceId;
+    }
 
-	private  $casterId;
+    public function getLiveStreamUrl()
+    {
+        return $this->liveStreamUrl;
+    }
 
-	private  $resourceName;
+    public function setLiveStreamUrl($liveStreamUrl)
+    {
+        $this->liveStreamUrl = $liveStreamUrl;
+        $this->queryParameters["LiveStreamUrl"] = $liveStreamUrl;
+    }
 
-	private  $repeatNum;
+    public function getSecurityToken()
+    {
+        return $this->securityToken;
+    }
 
-	private  $ownerId;
+    public function setSecurityToken($securityToken)
+    {
+        $this->securityToken = $securityToken;
+        $this->queryParameters["SecurityToken"] = $securityToken;
+    }
 
-	private  $materialId;
+    public function getCasterId()
+    {
+        return $this->casterId;
+    }
 
-	private  $version;
+    public function setCasterId($casterId)
+    {
+        $this->casterId = $casterId;
+        $this->queryParameters["CasterId"] = $casterId;
+    }
 
-	public function getResourceId() {
-		return $this->resourceId;
-	}
+    public function getResourceName()
+    {
+        return $this->resourceName;
+    }
 
-	public function setResourceId($resourceId) {
-		$this->resourceId = $resourceId;
-		$this->queryParameters["ResourceId"]=$resourceId;
-	}
+    public function setResourceName($resourceName)
+    {
+        $this->resourceName = $resourceName;
+        $this->queryParameters["ResourceName"] = $resourceName;
+    }
 
-	public function getLiveStreamUrl() {
-		return $this->liveStreamUrl;
-	}
+    public function getRepeatNum()
+    {
+        return $this->repeatNum;
+    }
 
-	public function setLiveStreamUrl($liveStreamUrl) {
-		$this->liveStreamUrl = $liveStreamUrl;
-		$this->queryParameters["LiveStreamUrl"]=$liveStreamUrl;
-	}
+    public function setRepeatNum($repeatNum)
+    {
+        $this->repeatNum = $repeatNum;
+        $this->queryParameters["RepeatNum"] = $repeatNum;
+    }
 
-	public function getSecurityToken() {
-		return $this->securityToken;
-	}
+    public function getOwnerId()
+    {
+        return $this->ownerId;
+    }
 
-	public function setSecurityToken($securityToken) {
-		$this->securityToken = $securityToken;
-		$this->queryParameters["SecurityToken"]=$securityToken;
-	}
+    public function setOwnerId($ownerId)
+    {
+        $this->ownerId = $ownerId;
+        $this->queryParameters["OwnerId"] = $ownerId;
+    }
 
-	public function getCasterId() {
-		return $this->casterId;
-	}
+    public function getMaterialId()
+    {
+        return $this->materialId;
+    }
 
-	public function setCasterId($casterId) {
-		$this->casterId = $casterId;
-		$this->queryParameters["CasterId"]=$casterId;
-	}
+    public function setMaterialId($materialId)
+    {
+        $this->materialId = $materialId;
+        $this->queryParameters["MaterialId"] = $materialId;
+    }
 
-	public function getResourceName() {
-		return $this->resourceName;
-	}
+    public function getVersion()
+    {
+        return $this->version;
+    }
 
-	public function setResourceName($resourceName) {
-		$this->resourceName = $resourceName;
-		$this->queryParameters["ResourceName"]=$resourceName;
-	}
+    public function setVersion($version)
+    {
+        $this->version = $version;
+        $this->queryParameters["Version"] = $version;
+    }
 
-	public function getRepeatNum() {
-		return $this->repeatNum;
-	}
-
-	public function setRepeatNum($repeatNum) {
-		$this->repeatNum = $repeatNum;
-		$this->queryParameters["RepeatNum"]=$repeatNum;
-	}
-
-	public function getOwnerId() {
-		return $this->ownerId;
-	}
-
-	public function setOwnerId($ownerId) {
-		$this->ownerId = $ownerId;
-		$this->queryParameters["OwnerId"]=$ownerId;
-	}
-
-	public function getMaterialId() {
-		return $this->materialId;
-	}
-
-	public function setMaterialId($materialId) {
-		$this->materialId = $materialId;
-		$this->queryParameters["MaterialId"]=$materialId;
-	}
-
-	public function getVersion() {
-		return $this->version;
-	}
-
-	public function setVersion($version) {
-		$this->version = $version;
-		$this->queryParameters["Version"]=$version;
-	}
-	
 }

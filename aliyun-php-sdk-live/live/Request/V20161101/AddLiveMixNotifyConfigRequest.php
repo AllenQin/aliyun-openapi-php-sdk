@@ -19,56 +19,63 @@
  */
 namespace Live\Request\V20161101;
 
-class AddLiveMixNotifyConfigRequest extends \RpcAcsRequest
+use Aliyun\CoreRpcAcsRequest;
+
+class AddLiveMixNotifyConfigRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("live", "2016-11-01", "AddLiveMixNotifyConfig");
-		$this->setMethod("POST");
-	}
+    private $securityToken;
+    private $domainName;
+    private $notifyUrl;
+    private $ownerId;
 
-	private  $securityToken;
+    function __construct()
+    {
+        parent::__construct("live", "2016-11-01", "AddLiveMixNotifyConfig");
+        $this->setMethod("POST");
+    }
 
-	private  $domainName;
+    public function getSecurityToken()
+    {
+        return $this->securityToken;
+    }
 
-	private  $notifyUrl;
+    public function setSecurityToken($securityToken)
+    {
+        $this->securityToken = $securityToken;
+        $this->queryParameters["SecurityToken"] = $securityToken;
+    }
 
-	private  $ownerId;
+    public function getDomainName()
+    {
+        return $this->domainName;
+    }
 
-	public function getSecurityToken() {
-		return $this->securityToken;
-	}
+    public function setDomainName($domainName)
+    {
+        $this->domainName = $domainName;
+        $this->queryParameters["DomainName"] = $domainName;
+    }
 
-	public function setSecurityToken($securityToken) {
-		$this->securityToken = $securityToken;
-		$this->queryParameters["SecurityToken"]=$securityToken;
-	}
+    public function getNotifyUrl()
+    {
+        return $this->notifyUrl;
+    }
 
-	public function getDomainName() {
-		return $this->domainName;
-	}
+    public function setNotifyUrl($notifyUrl)
+    {
+        $this->notifyUrl = $notifyUrl;
+        $this->queryParameters["NotifyUrl"] = $notifyUrl;
+    }
 
-	public function setDomainName($domainName) {
-		$this->domainName = $domainName;
-		$this->queryParameters["DomainName"]=$domainName;
-	}
+    public function getOwnerId()
+    {
+        return $this->ownerId;
+    }
 
-	public function getNotifyUrl() {
-		return $this->notifyUrl;
-	}
+    public function setOwnerId($ownerId)
+    {
+        $this->ownerId = $ownerId;
+        $this->queryParameters["OwnerId"] = $ownerId;
+    }
 
-	public function setNotifyUrl($notifyUrl) {
-		$this->notifyUrl = $notifyUrl;
-		$this->queryParameters["NotifyUrl"]=$notifyUrl;
-	}
-
-	public function getOwnerId() {
-		return $this->ownerId;
-	}
-
-	public function setOwnerId($ownerId) {
-		$this->ownerId = $ownerId;
-		$this->queryParameters["OwnerId"]=$ownerId;
-	}
-	
 }

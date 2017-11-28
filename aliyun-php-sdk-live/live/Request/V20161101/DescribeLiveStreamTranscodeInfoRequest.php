@@ -19,45 +19,51 @@
  */
 namespace Live\Request\V20161101;
 
-class DescribeLiveStreamTranscodeInfoRequest extends \RpcAcsRequest
+use Aliyun\CoreRpcAcsRequest;
+
+class DescribeLiveStreamTranscodeInfoRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("live", "2016-11-01", "DescribeLiveStreamTranscodeInfo");
-		$this->setMethod("POST");
-	}
+    private $securityToken;
+    private $ownerId;
+    private $domainTranscodeName;
 
-	private  $securityToken;
+    function __construct()
+    {
+        parent::__construct("live", "2016-11-01", "DescribeLiveStreamTranscodeInfo");
+        $this->setMethod("POST");
+    }
 
-	private  $ownerId;
+    public function getSecurityToken()
+    {
+        return $this->securityToken;
+    }
 
-	private  $domainTranscodeName;
+    public function setSecurityToken($securityToken)
+    {
+        $this->securityToken = $securityToken;
+        $this->queryParameters["SecurityToken"] = $securityToken;
+    }
 
-	public function getSecurityToken() {
-		return $this->securityToken;
-	}
+    public function getOwnerId()
+    {
+        return $this->ownerId;
+    }
 
-	public function setSecurityToken($securityToken) {
-		$this->securityToken = $securityToken;
-		$this->queryParameters["SecurityToken"]=$securityToken;
-	}
+    public function setOwnerId($ownerId)
+    {
+        $this->ownerId = $ownerId;
+        $this->queryParameters["OwnerId"] = $ownerId;
+    }
 
-	public function getOwnerId() {
-		return $this->ownerId;
-	}
+    public function getDomainTranscodeName()
+    {
+        return $this->domainTranscodeName;
+    }
 
-	public function setOwnerId($ownerId) {
-		$this->ownerId = $ownerId;
-		$this->queryParameters["OwnerId"]=$ownerId;
-	}
+    public function setDomainTranscodeName($domainTranscodeName)
+    {
+        $this->domainTranscodeName = $domainTranscodeName;
+        $this->queryParameters["DomainTranscodeName"] = $domainTranscodeName;
+    }
 
-	public function getDomainTranscodeName() {
-		return $this->domainTranscodeName;
-	}
-
-	public function setDomainTranscodeName($domainTranscodeName) {
-		$this->domainTranscodeName = $domainTranscodeName;
-		$this->queryParameters["DomainTranscodeName"]=$domainTranscodeName;
-	}
-	
 }

@@ -19,67 +19,75 @@
  */
 namespace Live\Request\V20161101;
 
-class EffectCasterUrgentRequest extends \RpcAcsRequest
+use Aliyun\CoreRpcAcsRequest;
+
+class EffectCasterUrgentRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("live", "2016-11-01", "EffectCasterUrgent");
-		$this->setMethod("POST");
-	}
+    private $securityToken;
+    private $casterId;
+    private $sceneId;
+    private $ownerId;
+    private $version;
 
-	private  $securityToken;
+    function __construct()
+    {
+        parent::__construct("live", "2016-11-01", "EffectCasterUrgent");
+        $this->setMethod("POST");
+    }
 
-	private  $casterId;
+    public function getSecurityToken()
+    {
+        return $this->securityToken;
+    }
 
-	private  $sceneId;
+    public function setSecurityToken($securityToken)
+    {
+        $this->securityToken = $securityToken;
+        $this->queryParameters["SecurityToken"] = $securityToken;
+    }
 
-	private  $ownerId;
+    public function getCasterId()
+    {
+        return $this->casterId;
+    }
 
-	private  $version;
+    public function setCasterId($casterId)
+    {
+        $this->casterId = $casterId;
+        $this->queryParameters["CasterId"] = $casterId;
+    }
 
-	public function getSecurityToken() {
-		return $this->securityToken;
-	}
+    public function getSceneId()
+    {
+        return $this->sceneId;
+    }
 
-	public function setSecurityToken($securityToken) {
-		$this->securityToken = $securityToken;
-		$this->queryParameters["SecurityToken"]=$securityToken;
-	}
+    public function setSceneId($sceneId)
+    {
+        $this->sceneId = $sceneId;
+        $this->queryParameters["SceneId"] = $sceneId;
+    }
 
-	public function getCasterId() {
-		return $this->casterId;
-	}
+    public function getOwnerId()
+    {
+        return $this->ownerId;
+    }
 
-	public function setCasterId($casterId) {
-		$this->casterId = $casterId;
-		$this->queryParameters["CasterId"]=$casterId;
-	}
+    public function setOwnerId($ownerId)
+    {
+        $this->ownerId = $ownerId;
+        $this->queryParameters["OwnerId"] = $ownerId;
+    }
 
-	public function getSceneId() {
-		return $this->sceneId;
-	}
+    public function getVersion()
+    {
+        return $this->version;
+    }
 
-	public function setSceneId($sceneId) {
-		$this->sceneId = $sceneId;
-		$this->queryParameters["SceneId"]=$sceneId;
-	}
+    public function setVersion($version)
+    {
+        $this->version = $version;
+        $this->queryParameters["Version"] = $version;
+    }
 
-	public function getOwnerId() {
-		return $this->ownerId;
-	}
-
-	public function setOwnerId($ownerId) {
-		$this->ownerId = $ownerId;
-		$this->queryParameters["OwnerId"]=$ownerId;
-	}
-
-	public function getVersion() {
-		return $this->version;
-	}
-
-	public function setVersion($version) {
-		$this->version = $version;
-		$this->queryParameters["Version"]=$version;
-	}
-	
 }

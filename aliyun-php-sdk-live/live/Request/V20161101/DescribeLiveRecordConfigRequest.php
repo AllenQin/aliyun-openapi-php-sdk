@@ -19,89 +19,99 @@
  */
 namespace Live\Request\V20161101;
 
-class DescribeLiveRecordConfigRequest extends \RpcAcsRequest
+use Aliyun\CoreRpcAcsRequest;
+
+class DescribeLiveRecordConfigRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("live", "2016-11-01", "DescribeLiveRecordConfig");
-		$this->setMethod("POST");
-	}
+    private $appName;
+    private $securityToken;
+    private $domainName;
+    private $pageSize;
+    private $ownerId;
+    private $pageNum;
+    private $order;
 
-	private  $appName;
+    function __construct()
+    {
+        parent::__construct("live", "2016-11-01", "DescribeLiveRecordConfig");
+        $this->setMethod("POST");
+    }
 
-	private  $securityToken;
+    public function getAppName()
+    {
+        return $this->appName;
+    }
 
-	private  $domainName;
+    public function setAppName($appName)
+    {
+        $this->appName = $appName;
+        $this->queryParameters["AppName"] = $appName;
+    }
 
-	private  $pageSize;
+    public function getSecurityToken()
+    {
+        return $this->securityToken;
+    }
 
-	private  $ownerId;
+    public function setSecurityToken($securityToken)
+    {
+        $this->securityToken = $securityToken;
+        $this->queryParameters["SecurityToken"] = $securityToken;
+    }
 
-	private  $pageNum;
+    public function getDomainName()
+    {
+        return $this->domainName;
+    }
 
-	private  $order;
+    public function setDomainName($domainName)
+    {
+        $this->domainName = $domainName;
+        $this->queryParameters["DomainName"] = $domainName;
+    }
 
-	public function getAppName() {
-		return $this->appName;
-	}
+    public function getPageSize()
+    {
+        return $this->pageSize;
+    }
 
-	public function setAppName($appName) {
-		$this->appName = $appName;
-		$this->queryParameters["AppName"]=$appName;
-	}
+    public function setPageSize($pageSize)
+    {
+        $this->pageSize = $pageSize;
+        $this->queryParameters["PageSize"] = $pageSize;
+    }
 
-	public function getSecurityToken() {
-		return $this->securityToken;
-	}
+    public function getOwnerId()
+    {
+        return $this->ownerId;
+    }
 
-	public function setSecurityToken($securityToken) {
-		$this->securityToken = $securityToken;
-		$this->queryParameters["SecurityToken"]=$securityToken;
-	}
+    public function setOwnerId($ownerId)
+    {
+        $this->ownerId = $ownerId;
+        $this->queryParameters["OwnerId"] = $ownerId;
+    }
 
-	public function getDomainName() {
-		return $this->domainName;
-	}
+    public function getPageNum()
+    {
+        return $this->pageNum;
+    }
 
-	public function setDomainName($domainName) {
-		$this->domainName = $domainName;
-		$this->queryParameters["DomainName"]=$domainName;
-	}
+    public function setPageNum($pageNum)
+    {
+        $this->pageNum = $pageNum;
+        $this->queryParameters["PageNum"] = $pageNum;
+    }
 
-	public function getPageSize() {
-		return $this->pageSize;
-	}
+    public function getOrder()
+    {
+        return $this->order;
+    }
 
-	public function setPageSize($pageSize) {
-		$this->pageSize = $pageSize;
-		$this->queryParameters["PageSize"]=$pageSize;
-	}
+    public function setOrder($order)
+    {
+        $this->order = $order;
+        $this->queryParameters["Order"] = $order;
+    }
 
-	public function getOwnerId() {
-		return $this->ownerId;
-	}
-
-	public function setOwnerId($ownerId) {
-		$this->ownerId = $ownerId;
-		$this->queryParameters["OwnerId"]=$ownerId;
-	}
-
-	public function getPageNum() {
-		return $this->pageNum;
-	}
-
-	public function setPageNum($pageNum) {
-		$this->pageNum = $pageNum;
-		$this->queryParameters["PageNum"]=$pageNum;
-	}
-
-	public function getOrder() {
-		return $this->order;
-	}
-
-	public function setOrder($order) {
-		$this->order = $order;
-		$this->queryParameters["Order"]=$order;
-	}
-	
 }

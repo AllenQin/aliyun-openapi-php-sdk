@@ -19,45 +19,51 @@
  */
 namespace Live\Request\V20161101;
 
-class ImagePornDetectionRequest extends \RpcAcsRequest
+use Aliyun\CoreRpcAcsRequest;
+
+class ImagePornDetectionRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("live", "2016-11-01", "ImagePornDetection");
-		$this->setMethod("POST");
-	}
+    private $securityToken;
+    private $imageUrl;
+    private $ownerId;
 
-	private  $securityToken;
+    function __construct()
+    {
+        parent::__construct("live", "2016-11-01", "ImagePornDetection");
+        $this->setMethod("POST");
+    }
 
-	private  $imageUrl;
+    public function getSecurityToken()
+    {
+        return $this->securityToken;
+    }
 
-	private  $ownerId;
+    public function setSecurityToken($securityToken)
+    {
+        $this->securityToken = $securityToken;
+        $this->queryParameters["SecurityToken"] = $securityToken;
+    }
 
-	public function getSecurityToken() {
-		return $this->securityToken;
-	}
+    public function getImageUrl()
+    {
+        return $this->imageUrl;
+    }
 
-	public function setSecurityToken($securityToken) {
-		$this->securityToken = $securityToken;
-		$this->queryParameters["SecurityToken"]=$securityToken;
-	}
+    public function setImageUrl($imageUrl)
+    {
+        $this->imageUrl = $imageUrl;
+        $this->queryParameters["ImageUrl"] = $imageUrl;
+    }
 
-	public function getImageUrl() {
-		return $this->imageUrl;
-	}
+    public function getOwnerId()
+    {
+        return $this->ownerId;
+    }
 
-	public function setImageUrl($imageUrl) {
-		$this->imageUrl = $imageUrl;
-		$this->queryParameters["ImageUrl"]=$imageUrl;
-	}
+    public function setOwnerId($ownerId)
+    {
+        $this->ownerId = $ownerId;
+        $this->queryParameters["OwnerId"] = $ownerId;
+    }
 
-	public function getOwnerId() {
-		return $this->ownerId;
-	}
-
-	public function setOwnerId($ownerId) {
-		$this->ownerId = $ownerId;
-		$this->queryParameters["OwnerId"]=$ownerId;
-	}
-	
 }

@@ -23,7 +23,7 @@ class HttpHelper
 {
     public static $connectTimeout = 30;//30 second
     public static $readTimeout = 80;//80 second
-    
+
     public static function curl($url, $httpMethod = "GET", $postFields = null, $headers = null)
     {
         $ch = curl_init();
@@ -38,7 +38,7 @@ class HttpHelper
         curl_setopt($ch, CURLOPT_FAILONERROR, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, is_array($postFields) ? self::getPostHttpBody($postFields) : $postFields);
-        
+
         if (self::$readTimeout) {
             curl_setopt($ch, CURLOPT_TIMEOUT, self::$readTimeout);
         }
@@ -51,7 +51,7 @@ class HttpHelper
             curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
         }
         if (is_array($headers) && 0 < count($headers)) {
-            $httpHeaders =self::getHttpHearders($headers);
+            $httpHeaders = self::getHttpHearders($headers);
             curl_setopt($ch, CURLOPT_HTTPHEADER, $httpHeaders);
         }
         $httpResponse = new HttpResponse();
@@ -63,6 +63,7 @@ class HttpHelper
         curl_close($ch);
         return $httpResponse;
     }
+
     public static function getPostHttpBody($postFildes)
     {
         $content = "";
@@ -71,11 +72,12 @@ class HttpHelper
         }
         return substr($content, 0, -1);
     }
+
     public static function getHttpHearders($headers)
     {
         $httpHeader = array();
         foreach ($headers as $key => $value) {
-            array_push($httpHeader, $key.":".$value);
+            array_push($httpHeader, $key . ":" . $value);
         }
         return $httpHeader;
     }

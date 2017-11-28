@@ -19,89 +19,99 @@
  */
 namespace Live\Request\V20161101;
 
-class ForbidLiveStreamRequest extends \RpcAcsRequest
+use Aliyun\CoreRpcAcsRequest;
+
+class ForbidLiveStreamRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("live", "2016-11-01", "ForbidLiveStream");
-		$this->setMethod("POST");
-	}
+    private $resumeTime;
+    private $appName;
+    private $securityToken;
+    private $liveStreamType;
+    private $domainName;
+    private $ownerId;
+    private $streamName;
 
-	private  $resumeTime;
+    function __construct()
+    {
+        parent::__construct("live", "2016-11-01", "ForbidLiveStream");
+        $this->setMethod("POST");
+    }
 
-	private  $appName;
+    public function getResumeTime()
+    {
+        return $this->resumeTime;
+    }
 
-	private  $securityToken;
+    public function setResumeTime($resumeTime)
+    {
+        $this->resumeTime = $resumeTime;
+        $this->queryParameters["ResumeTime"] = $resumeTime;
+    }
 
-	private  $liveStreamType;
+    public function getAppName()
+    {
+        return $this->appName;
+    }
 
-	private  $domainName;
+    public function setAppName($appName)
+    {
+        $this->appName = $appName;
+        $this->queryParameters["AppName"] = $appName;
+    }
 
-	private  $ownerId;
+    public function getSecurityToken()
+    {
+        return $this->securityToken;
+    }
 
-	private  $streamName;
+    public function setSecurityToken($securityToken)
+    {
+        $this->securityToken = $securityToken;
+        $this->queryParameters["SecurityToken"] = $securityToken;
+    }
 
-	public function getResumeTime() {
-		return $this->resumeTime;
-	}
+    public function getLiveStreamType()
+    {
+        return $this->liveStreamType;
+    }
 
-	public function setResumeTime($resumeTime) {
-		$this->resumeTime = $resumeTime;
-		$this->queryParameters["ResumeTime"]=$resumeTime;
-	}
+    public function setLiveStreamType($liveStreamType)
+    {
+        $this->liveStreamType = $liveStreamType;
+        $this->queryParameters["LiveStreamType"] = $liveStreamType;
+    }
 
-	public function getAppName() {
-		return $this->appName;
-	}
+    public function getDomainName()
+    {
+        return $this->domainName;
+    }
 
-	public function setAppName($appName) {
-		$this->appName = $appName;
-		$this->queryParameters["AppName"]=$appName;
-	}
+    public function setDomainName($domainName)
+    {
+        $this->domainName = $domainName;
+        $this->queryParameters["DomainName"] = $domainName;
+    }
 
-	public function getSecurityToken() {
-		return $this->securityToken;
-	}
+    public function getOwnerId()
+    {
+        return $this->ownerId;
+    }
 
-	public function setSecurityToken($securityToken) {
-		$this->securityToken = $securityToken;
-		$this->queryParameters["SecurityToken"]=$securityToken;
-	}
+    public function setOwnerId($ownerId)
+    {
+        $this->ownerId = $ownerId;
+        $this->queryParameters["OwnerId"] = $ownerId;
+    }
 
-	public function getLiveStreamType() {
-		return $this->liveStreamType;
-	}
+    public function getStreamName()
+    {
+        return $this->streamName;
+    }
 
-	public function setLiveStreamType($liveStreamType) {
-		$this->liveStreamType = $liveStreamType;
-		$this->queryParameters["LiveStreamType"]=$liveStreamType;
-	}
+    public function setStreamName($streamName)
+    {
+        $this->streamName = $streamName;
+        $this->queryParameters["StreamName"] = $streamName;
+    }
 
-	public function getDomainName() {
-		return $this->domainName;
-	}
-
-	public function setDomainName($domainName) {
-		$this->domainName = $domainName;
-		$this->queryParameters["DomainName"]=$domainName;
-	}
-
-	public function getOwnerId() {
-		return $this->ownerId;
-	}
-
-	public function setOwnerId($ownerId) {
-		$this->ownerId = $ownerId;
-		$this->queryParameters["OwnerId"]=$ownerId;
-	}
-
-	public function getStreamName() {
-		return $this->streamName;
-	}
-
-	public function setStreamName($streamName) {
-		$this->streamName = $streamName;
-		$this->queryParameters["StreamName"]=$streamName;
-	}
-	
 }

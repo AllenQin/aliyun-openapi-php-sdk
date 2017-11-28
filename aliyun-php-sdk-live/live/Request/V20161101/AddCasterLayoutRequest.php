@@ -19,116 +19,127 @@
  */
 namespace Live\Request\V20161101;
 
-class AddCasterLayoutRequest extends \RpcAcsRequest
+use Aliyun\CoreRpcAcsRequest;
+
+class AddCasterLayoutRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("live", "2016-11-01", "AddCasterLayout");
-		$this->setMethod("POST");
-	}
+    private $BlendLists;
+    private $AudioLayers;
+    private $securityToken;
+    private $VideoLayers;
+    private $casterId;
+    private $MixLists;
+    private $ownerId;
+    private $version;
 
-	private  $BlendLists;
+    function __construct()
+    {
+        parent::__construct("live", "2016-11-01", "AddCasterLayout");
+        $this->setMethod("POST");
+    }
 
-	private  $AudioLayers;
+    public function getBlendLists()
+    {
+        return $this->BlendLists;
+    }
 
-	private  $securityToken;
+    public function setBlendLists($BlendLists)
+    {
+        $this->BlendLists = $BlendLists;
+        for ($i = 0; $i < count($BlendLists); $i++) {
+            $this->queryParameters["BlendList." . ($i + 1)] = $BlendLists[$i];
+        }
+    }
 
-	private  $VideoLayers;
+    public function getAudioLayers()
+    {
+        return $this->AudioLayers;
+    }
 
-	private  $casterId;
+    public function setAudioLayers($AudioLayers)
+    {
+        $this->AudioLayers = $AudioLayers;
+        for ($i = 0; $i < count($AudioLayers); $i++) {
+            $this->queryParameters['AudioLayer.' . ($i + 1) . '.VolumeRate'] = $AudioLayers[$i]['VolumeRate'];
+            $this->queryParameters['AudioLayer.' . ($i + 1) . '.ValidChannel'] = $AudioLayers[$i]['ValidChannel'];
 
-	private  $MixLists;
+        }
+    }
 
-	private  $ownerId;
+    public function getSecurityToken()
+    {
+        return $this->securityToken;
+    }
 
-	private  $version;
+    public function setSecurityToken($securityToken)
+    {
+        $this->securityToken = $securityToken;
+        $this->queryParameters["SecurityToken"] = $securityToken;
+    }
 
-	public function getBlendLists() {
-		return $this->BlendLists;
-	}
+    public function getVideoLayers()
+    {
+        return $this->VideoLayers;
+    }
 
-	public function setBlendLists($BlendLists) {
-		$this->BlendLists = $BlendLists;
-		for ($i = 0; $i < count($BlendLists); $i ++) {	
-			$this->queryParameters["BlendList.".($i+1)] = $BlendLists[$i];
-		}
-	}
+    public function setVideoLayers($VideoLayers)
+    {
+        $this->VideoLayers = $VideoLayers;
+        for ($i = 0; $i < count($VideoLayers); $i++) {
+            $this->queryParameters['VideoLayer.' . ($i + 1) . '.HeightNormalized'] = $VideoLayers[$i]['HeightNormalized'];
+            $this->queryParameters['VideoLayer.' . ($i + 1) . '.WidthNormalized'] = $VideoLayers[$i]['WidthNormalized'];
+            $this->queryParameters['VideoLayer.' . ($i + 1) . '.PositionRefer'] = $VideoLayers[$i]['PositionRefer'];
+            for ($j = 0; $j < count($VideoLayers[$i]['PositionNormalizeds']); $j++) {
+                $this->queryParameters['VideoLayer.' . ($i + 1) . '.PositionNormalized.' . ($j + 1)] = $VideoLayers[$i]['PositionNormalizeds'][$j];
+            }
 
-	public function getAudioLayers() {
-		return $this->AudioLayers;
-	}
+        }
+    }
 
-	public function setAudioLayers($AudioLayers) {
-		$this->AudioLayers = $AudioLayers;
-		for ($i = 0; $i < count($AudioLayers); $i ++) {	
-			$this->queryParameters['AudioLayer.' . ($i + 1) . '.VolumeRate'] = $AudioLayers[$i]['VolumeRate'];
-			$this->queryParameters['AudioLayer.' . ($i + 1) . '.ValidChannel'] = $AudioLayers[$i]['ValidChannel'];
+    public function getCasterId()
+    {
+        return $this->casterId;
+    }
 
-		}
-	}
+    public function setCasterId($casterId)
+    {
+        $this->casterId = $casterId;
+        $this->queryParameters["CasterId"] = $casterId;
+    }
 
-	public function getSecurityToken() {
-		return $this->securityToken;
-	}
+    public function getMixLists()
+    {
+        return $this->MixLists;
+    }
 
-	public function setSecurityToken($securityToken) {
-		$this->securityToken = $securityToken;
-		$this->queryParameters["SecurityToken"]=$securityToken;
-	}
+    public function setMixLists($MixLists)
+    {
+        $this->MixLists = $MixLists;
+        for ($i = 0; $i < count($MixLists); $i++) {
+            $this->queryParameters["MixList." . ($i + 1)] = $MixLists[$i];
+        }
+    }
 
-	public function getVideoLayers() {
-		return $this->VideoLayers;
-	}
+    public function getOwnerId()
+    {
+        return $this->ownerId;
+    }
 
-	public function setVideoLayers($VideoLayers) {
-		$this->VideoLayers = $VideoLayers;
-		for ($i = 0; $i < count($VideoLayers); $i ++) {	
-			$this->queryParameters['VideoLayer.' . ($i + 1) . '.HeightNormalized'] = $VideoLayers[$i]['HeightNormalized'];
-			$this->queryParameters['VideoLayer.' . ($i + 1) . '.WidthNormalized'] = $VideoLayers[$i]['WidthNormalized'];
-			$this->queryParameters['VideoLayer.' . ($i + 1) . '.PositionRefer'] = $VideoLayers[$i]['PositionRefer'];
-			for ($j = 0; $j < count($VideoLayers[$i]['PositionNormalizeds']); $j ++) {
-				$this->queryParameters['VideoLayer.' . ($i + 1) . '.PositionNormalized.' . ($j + 1)] = $VideoLayers[$i]['PositionNormalizeds'][$j];
-			}
+    public function setOwnerId($ownerId)
+    {
+        $this->ownerId = $ownerId;
+        $this->queryParameters["OwnerId"] = $ownerId;
+    }
 
-		}
-	}
+    public function getVersion()
+    {
+        return $this->version;
+    }
 
-	public function getCasterId() {
-		return $this->casterId;
-	}
+    public function setVersion($version)
+    {
+        $this->version = $version;
+        $this->queryParameters["Version"] = $version;
+    }
 
-	public function setCasterId($casterId) {
-		$this->casterId = $casterId;
-		$this->queryParameters["CasterId"]=$casterId;
-	}
-
-	public function getMixLists() {
-		return $this->MixLists;
-	}
-
-	public function setMixLists($MixLists) {
-		$this->MixLists = $MixLists;
-		for ($i = 0; $i < count($MixLists); $i ++) {	
-			$this->queryParameters["MixList.".($i+1)] = $MixLists[$i];
-		}
-	}
-
-	public function getOwnerId() {
-		return $this->ownerId;
-	}
-
-	public function setOwnerId($ownerId) {
-		$this->ownerId = $ownerId;
-		$this->queryParameters["OwnerId"]=$ownerId;
-	}
-
-	public function getVersion() {
-		return $this->version;
-	}
-
-	public function setVersion($version) {
-		$this->version = $version;
-		$this->queryParameters["Version"]=$version;
-	}
-	
 }

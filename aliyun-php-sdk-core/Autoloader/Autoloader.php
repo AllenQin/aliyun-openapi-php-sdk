@@ -18,6 +18,7 @@
  * under the License.
  */
 spl_autoload_register("Autoloader::autoload");
+
 class Autoloader
 {
     private static $autoloadPathArray = array(
@@ -28,11 +29,11 @@ class Autoloader
         "aliyun-php-sdk-core/Regions",
         "aliyun-php-sdk-core/Exception"
     );
-    
+
     public static function autoload($className)
     {
         foreach (self::$autoloadPathArray as $path) {
-            $file = dirname(dirname(__DIR__)).DIRECTORY_SEPARATOR.$path.DIRECTORY_SEPARATOR.$className.".php";
+            $file = dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . $path . DIRECTORY_SEPARATOR . $className . ".php";
             $file = str_replace('\\', DIRECTORY_SEPARATOR, $file);
             if (is_file($file)) {
                 include_once $file;
@@ -40,7 +41,7 @@ class Autoloader
             }
         }
     }
-    
+
     public static function addAutoloadPath($path)
     {
         array_push(self::$autoloadPathArray, $path);

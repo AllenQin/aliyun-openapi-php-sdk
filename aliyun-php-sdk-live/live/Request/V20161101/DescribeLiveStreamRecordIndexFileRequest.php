@@ -19,78 +19,87 @@
  */
 namespace Live\Request\V20161101;
 
-class DescribeLiveStreamRecordIndexFileRequest extends \RpcAcsRequest
+use Aliyun\CoreRpcAcsRequest;
+
+class DescribeLiveStreamRecordIndexFileRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("live", "2016-11-01", "DescribeLiveStreamRecordIndexFile");
-		$this->setMethod("POST");
-	}
+    private $recordId;
+    private $appName;
+    private $securityToken;
+    private $domainName;
+    private $ownerId;
+    private $streamName;
 
-	private  $recordId;
+    function __construct()
+    {
+        parent::__construct("live", "2016-11-01", "DescribeLiveStreamRecordIndexFile");
+        $this->setMethod("POST");
+    }
 
-	private  $appName;
+    public function getRecordId()
+    {
+        return $this->recordId;
+    }
 
-	private  $securityToken;
+    public function setRecordId($recordId)
+    {
+        $this->recordId = $recordId;
+        $this->queryParameters["RecordId"] = $recordId;
+    }
 
-	private  $domainName;
+    public function getAppName()
+    {
+        return $this->appName;
+    }
 
-	private  $ownerId;
+    public function setAppName($appName)
+    {
+        $this->appName = $appName;
+        $this->queryParameters["AppName"] = $appName;
+    }
 
-	private  $streamName;
+    public function getSecurityToken()
+    {
+        return $this->securityToken;
+    }
 
-	public function getRecordId() {
-		return $this->recordId;
-	}
+    public function setSecurityToken($securityToken)
+    {
+        $this->securityToken = $securityToken;
+        $this->queryParameters["SecurityToken"] = $securityToken;
+    }
 
-	public function setRecordId($recordId) {
-		$this->recordId = $recordId;
-		$this->queryParameters["RecordId"]=$recordId;
-	}
+    public function getDomainName()
+    {
+        return $this->domainName;
+    }
 
-	public function getAppName() {
-		return $this->appName;
-	}
+    public function setDomainName($domainName)
+    {
+        $this->domainName = $domainName;
+        $this->queryParameters["DomainName"] = $domainName;
+    }
 
-	public function setAppName($appName) {
-		$this->appName = $appName;
-		$this->queryParameters["AppName"]=$appName;
-	}
+    public function getOwnerId()
+    {
+        return $this->ownerId;
+    }
 
-	public function getSecurityToken() {
-		return $this->securityToken;
-	}
+    public function setOwnerId($ownerId)
+    {
+        $this->ownerId = $ownerId;
+        $this->queryParameters["OwnerId"] = $ownerId;
+    }
 
-	public function setSecurityToken($securityToken) {
-		$this->securityToken = $securityToken;
-		$this->queryParameters["SecurityToken"]=$securityToken;
-	}
+    public function getStreamName()
+    {
+        return $this->streamName;
+    }
 
-	public function getDomainName() {
-		return $this->domainName;
-	}
+    public function setStreamName($streamName)
+    {
+        $this->streamName = $streamName;
+        $this->queryParameters["StreamName"] = $streamName;
+    }
 
-	public function setDomainName($domainName) {
-		$this->domainName = $domainName;
-		$this->queryParameters["DomainName"]=$domainName;
-	}
-
-	public function getOwnerId() {
-		return $this->ownerId;
-	}
-
-	public function setOwnerId($ownerId) {
-		$this->ownerId = $ownerId;
-		$this->queryParameters["OwnerId"]=$ownerId;
-	}
-
-	public function getStreamName() {
-		return $this->streamName;
-	}
-
-	public function setStreamName($streamName) {
-		$this->streamName = $streamName;
-		$this->queryParameters["StreamName"]=$streamName;
-	}
-	
 }

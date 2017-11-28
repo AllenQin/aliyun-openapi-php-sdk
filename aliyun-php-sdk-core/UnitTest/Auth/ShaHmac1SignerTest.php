@@ -18,6 +18,7 @@
  * under the License.
  */
 include_once '../../Config.php';
+
 class ShaHmac1SignerTest extends PHPUnit_Framework_TestCase
 {
     public function testShaHmac1Signer()

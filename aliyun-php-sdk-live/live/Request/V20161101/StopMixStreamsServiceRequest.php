@@ -19,100 +19,111 @@
  */
 namespace Live\Request\V20161101;
 
-class StopMixStreamsServiceRequest extends \RpcAcsRequest
+use Aliyun\CoreRpcAcsRequest;
+
+class StopMixStreamsServiceRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("live", "2016-11-01", "StopMixStreamsService");
-		$this->setMethod("POST");
-	}
+    private $securityToken;
+    private $mainDomainName;
+    private $mixStreamName;
+    private $mixDomainName;
+    private $ownerId;
+    private $mainAppName;
+    private $mixAppName;
+    private $mainStreamName;
 
-	private  $securityToken;
+    function __construct()
+    {
+        parent::__construct("live", "2016-11-01", "StopMixStreamsService");
+        $this->setMethod("POST");
+    }
 
-	private  $mainDomainName;
+    public function getSecurityToken()
+    {
+        return $this->securityToken;
+    }
 
-	private  $mixStreamName;
+    public function setSecurityToken($securityToken)
+    {
+        $this->securityToken = $securityToken;
+        $this->queryParameters["SecurityToken"] = $securityToken;
+    }
 
-	private  $mixDomainName;
+    public function getMainDomainName()
+    {
+        return $this->mainDomainName;
+    }
 
-	private  $ownerId;
+    public function setMainDomainName($mainDomainName)
+    {
+        $this->mainDomainName = $mainDomainName;
+        $this->queryParameters["MainDomainName"] = $mainDomainName;
+    }
 
-	private  $mainAppName;
+    public function getMixStreamName()
+    {
+        return $this->mixStreamName;
+    }
 
-	private  $mixAppName;
+    public function setMixStreamName($mixStreamName)
+    {
+        $this->mixStreamName = $mixStreamName;
+        $this->queryParameters["MixStreamName"] = $mixStreamName;
+    }
 
-	private  $mainStreamName;
+    public function getMixDomainName()
+    {
+        return $this->mixDomainName;
+    }
 
-	public function getSecurityToken() {
-		return $this->securityToken;
-	}
+    public function setMixDomainName($mixDomainName)
+    {
+        $this->mixDomainName = $mixDomainName;
+        $this->queryParameters["MixDomainName"] = $mixDomainName;
+    }
 
-	public function setSecurityToken($securityToken) {
-		$this->securityToken = $securityToken;
-		$this->queryParameters["SecurityToken"]=$securityToken;
-	}
+    public function getOwnerId()
+    {
+        return $this->ownerId;
+    }
 
-	public function getMainDomainName() {
-		return $this->mainDomainName;
-	}
+    public function setOwnerId($ownerId)
+    {
+        $this->ownerId = $ownerId;
+        $this->queryParameters["OwnerId"] = $ownerId;
+    }
 
-	public function setMainDomainName($mainDomainName) {
-		$this->mainDomainName = $mainDomainName;
-		$this->queryParameters["MainDomainName"]=$mainDomainName;
-	}
+    public function getMainAppName()
+    {
+        return $this->mainAppName;
+    }
 
-	public function getMixStreamName() {
-		return $this->mixStreamName;
-	}
+    public function setMainAppName($mainAppName)
+    {
+        $this->mainAppName = $mainAppName;
+        $this->queryParameters["MainAppName"] = $mainAppName;
+    }
 
-	public function setMixStreamName($mixStreamName) {
-		$this->mixStreamName = $mixStreamName;
-		$this->queryParameters["MixStreamName"]=$mixStreamName;
-	}
+    public function getMixAppName()
+    {
+        return $this->mixAppName;
+    }
 
-	public function getMixDomainName() {
-		return $this->mixDomainName;
-	}
+    public function setMixAppName($mixAppName)
+    {
+        $this->mixAppName = $mixAppName;
+        $this->queryParameters["MixAppName"] = $mixAppName;
+    }
 
-	public function setMixDomainName($mixDomainName) {
-		$this->mixDomainName = $mixDomainName;
-		$this->queryParameters["MixDomainName"]=$mixDomainName;
-	}
+    public function getMainStreamName()
+    {
+        return $this->mainStreamName;
+    }
 
-	public function getOwnerId() {
-		return $this->ownerId;
-	}
+    public function setMainStreamName($mainStreamName)
+    {
+        $this->mainStreamName = $mainStreamName;
+        $this->queryParameters["MainStreamName"] = $mainStreamName;
+    }
 
-	public function setOwnerId($ownerId) {
-		$this->ownerId = $ownerId;
-		$this->queryParameters["OwnerId"]=$ownerId;
-	}
-
-	public function getMainAppName() {
-		return $this->mainAppName;
-	}
-
-	public function setMainAppName($mainAppName) {
-		$this->mainAppName = $mainAppName;
-		$this->queryParameters["MainAppName"]=$mainAppName;
-	}
-
-	public function getMixAppName() {
-		return $this->mixAppName;
-	}
-
-	public function setMixAppName($mixAppName) {
-		$this->mixAppName = $mixAppName;
-		$this->queryParameters["MixAppName"]=$mixAppName;
-	}
-
-	public function getMainStreamName() {
-		return $this->mainStreamName;
-	}
-
-	public function setMainStreamName($mainStreamName) {
-		$this->mainStreamName = $mainStreamName;
-		$this->queryParameters["MainStreamName"]=$mainStreamName;
-	}
-	
 }

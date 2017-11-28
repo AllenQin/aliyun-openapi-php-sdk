@@ -19,122 +19,135 @@
  */
 namespace Live\Request\V20161101;
 
-class DescribeLiveStreamRecordIndexFilesRequest extends \RpcAcsRequest
+use Aliyun\CoreRpcAcsRequest;
+
+class DescribeLiveStreamRecordIndexFilesRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("live", "2016-11-01", "DescribeLiveStreamRecordIndexFiles");
-		$this->setMethod("POST");
-	}
+    private $appName;
+    private $securityToken;
+    private $domainName;
+    private $pageSize;
+    private $endTime;
+    private $startTime;
+    private $ownerId;
+    private $pageNum;
+    private $streamName;
+    private $order;
 
-	private  $appName;
+    function __construct()
+    {
+        parent::__construct("live", "2016-11-01", "DescribeLiveStreamRecordIndexFiles");
+        $this->setMethod("POST");
+    }
 
-	private  $securityToken;
+    public function getAppName()
+    {
+        return $this->appName;
+    }
 
-	private  $domainName;
+    public function setAppName($appName)
+    {
+        $this->appName = $appName;
+        $this->queryParameters["AppName"] = $appName;
+    }
 
-	private  $pageSize;
+    public function getSecurityToken()
+    {
+        return $this->securityToken;
+    }
 
-	private  $endTime;
+    public function setSecurityToken($securityToken)
+    {
+        $this->securityToken = $securityToken;
+        $this->queryParameters["SecurityToken"] = $securityToken;
+    }
 
-	private  $startTime;
+    public function getDomainName()
+    {
+        return $this->domainName;
+    }
 
-	private  $ownerId;
+    public function setDomainName($domainName)
+    {
+        $this->domainName = $domainName;
+        $this->queryParameters["DomainName"] = $domainName;
+    }
 
-	private  $pageNum;
+    public function getPageSize()
+    {
+        return $this->pageSize;
+    }
 
-	private  $streamName;
+    public function setPageSize($pageSize)
+    {
+        $this->pageSize = $pageSize;
+        $this->queryParameters["PageSize"] = $pageSize;
+    }
 
-	private  $order;
+    public function getEndTime()
+    {
+        return $this->endTime;
+    }
 
-	public function getAppName() {
-		return $this->appName;
-	}
+    public function setEndTime($endTime)
+    {
+        $this->endTime = $endTime;
+        $this->queryParameters["EndTime"] = $endTime;
+    }
 
-	public function setAppName($appName) {
-		$this->appName = $appName;
-		$this->queryParameters["AppName"]=$appName;
-	}
+    public function getStartTime()
+    {
+        return $this->startTime;
+    }
 
-	public function getSecurityToken() {
-		return $this->securityToken;
-	}
+    public function setStartTime($startTime)
+    {
+        $this->startTime = $startTime;
+        $this->queryParameters["StartTime"] = $startTime;
+    }
 
-	public function setSecurityToken($securityToken) {
-		$this->securityToken = $securityToken;
-		$this->queryParameters["SecurityToken"]=$securityToken;
-	}
+    public function getOwnerId()
+    {
+        return $this->ownerId;
+    }
 
-	public function getDomainName() {
-		return $this->domainName;
-	}
+    public function setOwnerId($ownerId)
+    {
+        $this->ownerId = $ownerId;
+        $this->queryParameters["OwnerId"] = $ownerId;
+    }
 
-	public function setDomainName($domainName) {
-		$this->domainName = $domainName;
-		$this->queryParameters["DomainName"]=$domainName;
-	}
+    public function getPageNum()
+    {
+        return $this->pageNum;
+    }
 
-	public function getPageSize() {
-		return $this->pageSize;
-	}
+    public function setPageNum($pageNum)
+    {
+        $this->pageNum = $pageNum;
+        $this->queryParameters["PageNum"] = $pageNum;
+    }
 
-	public function setPageSize($pageSize) {
-		$this->pageSize = $pageSize;
-		$this->queryParameters["PageSize"]=$pageSize;
-	}
+    public function getStreamName()
+    {
+        return $this->streamName;
+    }
 
-	public function getEndTime() {
-		return $this->endTime;
-	}
+    public function setStreamName($streamName)
+    {
+        $this->streamName = $streamName;
+        $this->queryParameters["StreamName"] = $streamName;
+    }
 
-	public function setEndTime($endTime) {
-		$this->endTime = $endTime;
-		$this->queryParameters["EndTime"]=$endTime;
-	}
+    public function getOrder()
+    {
+        return $this->order;
+    }
 
-	public function getStartTime() {
-		return $this->startTime;
-	}
+    public function setOrder($order)
+    {
+        $this->order = $order;
+        $this->queryParameters["Order"] = $order;
+    }
 
-	public function setStartTime($startTime) {
-		$this->startTime = $startTime;
-		$this->queryParameters["StartTime"]=$startTime;
-	}
-
-	public function getOwnerId() {
-		return $this->ownerId;
-	}
-
-	public function setOwnerId($ownerId) {
-		$this->ownerId = $ownerId;
-		$this->queryParameters["OwnerId"]=$ownerId;
-	}
-
-	public function getPageNum() {
-		return $this->pageNum;
-	}
-
-	public function setPageNum($pageNum) {
-		$this->pageNum = $pageNum;
-		$this->queryParameters["PageNum"]=$pageNum;
-	}
-
-	public function getStreamName() {
-		return $this->streamName;
-	}
-
-	public function setStreamName($streamName) {
-		$this->streamName = $streamName;
-		$this->queryParameters["StreamName"]=$streamName;
-	}
-
-	public function getOrder() {
-		return $this->order;
-	}
-
-	public function setOrder($order) {
-		$this->order = $order;
-		$this->queryParameters["Order"]=$order;
-	}
-	
 }

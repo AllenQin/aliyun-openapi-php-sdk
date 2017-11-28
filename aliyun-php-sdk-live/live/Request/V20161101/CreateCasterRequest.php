@@ -19,111 +19,123 @@
  */
 namespace Live\Request\V20161101;
 
-class CreateCasterRequest extends \RpcAcsRequest
+use Aliyun\CoreRpcAcsRequest;
+
+class CreateCasterRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("live", "2016-11-01", "CreateCaster");
-		$this->setMethod("POST");
-	}
+    private $casterTemplate;
+    private $normType;
+    private $period;
+    private $securityToken;
+    private $casterName;
+    private $clientToken;
+    private $chargeType;
+    private $ownerId;
+    private $version;
 
-	private  $casterTemplate;
+    function __construct()
+    {
+        parent::__construct("live", "2016-11-01", "CreateCaster");
+        $this->setMethod("POST");
+    }
 
-	private  $normType;
+    public function getCasterTemplate()
+    {
+        return $this->casterTemplate;
+    }
 
-	private  $period;
+    public function setCasterTemplate($casterTemplate)
+    {
+        $this->casterTemplate = $casterTemplate;
+        $this->queryParameters["CasterTemplate"] = $casterTemplate;
+    }
 
-	private  $securityToken;
+    public function getNormType()
+    {
+        return $this->normType;
+    }
 
-	private  $casterName;
+    public function setNormType($normType)
+    {
+        $this->normType = $normType;
+        $this->queryParameters["NormType"] = $normType;
+    }
 
-	private  $clientToken;
+    public function getPeriod()
+    {
+        return $this->period;
+    }
 
-	private  $chargeType;
+    public function setPeriod($period)
+    {
+        $this->period = $period;
+        $this->queryParameters["Period"] = $period;
+    }
 
-	private  $ownerId;
+    public function getSecurityToken()
+    {
+        return $this->securityToken;
+    }
 
-	private  $version;
+    public function setSecurityToken($securityToken)
+    {
+        $this->securityToken = $securityToken;
+        $this->queryParameters["SecurityToken"] = $securityToken;
+    }
 
-	public function getCasterTemplate() {
-		return $this->casterTemplate;
-	}
+    public function getCasterName()
+    {
+        return $this->casterName;
+    }
 
-	public function setCasterTemplate($casterTemplate) {
-		$this->casterTemplate = $casterTemplate;
-		$this->queryParameters["CasterTemplate"]=$casterTemplate;
-	}
+    public function setCasterName($casterName)
+    {
+        $this->casterName = $casterName;
+        $this->queryParameters["CasterName"] = $casterName;
+    }
 
-	public function getNormType() {
-		return $this->normType;
-	}
+    public function getClientToken()
+    {
+        return $this->clientToken;
+    }
 
-	public function setNormType($normType) {
-		$this->normType = $normType;
-		$this->queryParameters["NormType"]=$normType;
-	}
+    public function setClientToken($clientToken)
+    {
+        $this->clientToken = $clientToken;
+        $this->queryParameters["ClientToken"] = $clientToken;
+    }
 
-	public function getPeriod() {
-		return $this->period;
-	}
+    public function getChargeType()
+    {
+        return $this->chargeType;
+    }
 
-	public function setPeriod($period) {
-		$this->period = $period;
-		$this->queryParameters["Period"]=$period;
-	}
+    public function setChargeType($chargeType)
+    {
+        $this->chargeType = $chargeType;
+        $this->queryParameters["ChargeType"] = $chargeType;
+    }
 
-	public function getSecurityToken() {
-		return $this->securityToken;
-	}
+    public function getOwnerId()
+    {
+        return $this->ownerId;
+    }
 
-	public function setSecurityToken($securityToken) {
-		$this->securityToken = $securityToken;
-		$this->queryParameters["SecurityToken"]=$securityToken;
-	}
+    public function setOwnerId($ownerId)
+    {
+        $this->ownerId = $ownerId;
+        $this->queryParameters["OwnerId"] = $ownerId;
+    }
 
-	public function getCasterName() {
-		return $this->casterName;
-	}
+    public function getVersion()
+    {
+        return $this->version;
+    }
 
-	public function setCasterName($casterName) {
-		$this->casterName = $casterName;
-		$this->queryParameters["CasterName"]=$casterName;
-	}
+    public function setVersion($version)
+    {
+        $this->version = $version;
+        $this->queryParameters["Version"] = $version;
+    }
 
-	public function getClientToken() {
-		return $this->clientToken;
-	}
-
-	public function setClientToken($clientToken) {
-		$this->clientToken = $clientToken;
-		$this->queryParameters["ClientToken"]=$clientToken;
-	}
-
-	public function getChargeType() {
-		return $this->chargeType;
-	}
-
-	public function setChargeType($chargeType) {
-		$this->chargeType = $chargeType;
-		$this->queryParameters["ChargeType"]=$chargeType;
-	}
-
-	public function getOwnerId() {
-		return $this->ownerId;
-	}
-
-	public function setOwnerId($ownerId) {
-		$this->ownerId = $ownerId;
-		$this->queryParameters["OwnerId"]=$ownerId;
-	}
-
-	public function getVersion() {
-		return $this->version;
-	}
-
-	public function setVersion($version) {
-		$this->version = $version;
-		$this->queryParameters["Version"]=$version;
-	}
-	
 }

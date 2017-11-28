@@ -19,78 +19,87 @@
  */
 namespace Live\Request\V20161101;
 
-class CopyCasterRequest extends \RpcAcsRequest
+use Aliyun\CoreRpcAcsRequest;
+
+class CopyCasterRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("live", "2016-11-01", "CopyCaster");
-		$this->setMethod("POST");
-	}
+    private $srcCasterId;
+    private $securityToken;
+    private $casterName;
+    private $clientToken;
+    private $ownerId;
+    private $version;
 
-	private  $srcCasterId;
+    function __construct()
+    {
+        parent::__construct("live", "2016-11-01", "CopyCaster");
+        $this->setMethod("POST");
+    }
 
-	private  $securityToken;
+    public function getSrcCasterId()
+    {
+        return $this->srcCasterId;
+    }
 
-	private  $casterName;
+    public function setSrcCasterId($srcCasterId)
+    {
+        $this->srcCasterId = $srcCasterId;
+        $this->queryParameters["SrcCasterId"] = $srcCasterId;
+    }
 
-	private  $clientToken;
+    public function getSecurityToken()
+    {
+        return $this->securityToken;
+    }
 
-	private  $ownerId;
+    public function setSecurityToken($securityToken)
+    {
+        $this->securityToken = $securityToken;
+        $this->queryParameters["SecurityToken"] = $securityToken;
+    }
 
-	private  $version;
+    public function getCasterName()
+    {
+        return $this->casterName;
+    }
 
-	public function getSrcCasterId() {
-		return $this->srcCasterId;
-	}
+    public function setCasterName($casterName)
+    {
+        $this->casterName = $casterName;
+        $this->queryParameters["CasterName"] = $casterName;
+    }
 
-	public function setSrcCasterId($srcCasterId) {
-		$this->srcCasterId = $srcCasterId;
-		$this->queryParameters["SrcCasterId"]=$srcCasterId;
-	}
+    public function getClientToken()
+    {
+        return $this->clientToken;
+    }
 
-	public function getSecurityToken() {
-		return $this->securityToken;
-	}
+    public function setClientToken($clientToken)
+    {
+        $this->clientToken = $clientToken;
+        $this->queryParameters["ClientToken"] = $clientToken;
+    }
 
-	public function setSecurityToken($securityToken) {
-		$this->securityToken = $securityToken;
-		$this->queryParameters["SecurityToken"]=$securityToken;
-	}
+    public function getOwnerId()
+    {
+        return $this->ownerId;
+    }
 
-	public function getCasterName() {
-		return $this->casterName;
-	}
+    public function setOwnerId($ownerId)
+    {
+        $this->ownerId = $ownerId;
+        $this->queryParameters["OwnerId"] = $ownerId;
+    }
 
-	public function setCasterName($casterName) {
-		$this->casterName = $casterName;
-		$this->queryParameters["CasterName"]=$casterName;
-	}
+    public function getVersion()
+    {
+        return $this->version;
+    }
 
-	public function getClientToken() {
-		return $this->clientToken;
-	}
+    public function setVersion($version)
+    {
+        $this->version = $version;
+        $this->queryParameters["Version"] = $version;
+    }
 
-	public function setClientToken($clientToken) {
-		$this->clientToken = $clientToken;
-		$this->queryParameters["ClientToken"]=$clientToken;
-	}
-
-	public function getOwnerId() {
-		return $this->ownerId;
-	}
-
-	public function setOwnerId($ownerId) {
-		$this->ownerId = $ownerId;
-		$this->queryParameters["OwnerId"]=$ownerId;
-	}
-
-	public function getVersion() {
-		return $this->version;
-	}
-
-	public function setVersion($version) {
-		$this->version = $version;
-		$this->queryParameters["Version"]=$version;
-	}
-	
 }

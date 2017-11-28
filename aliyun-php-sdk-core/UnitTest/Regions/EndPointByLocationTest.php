@@ -16,6 +16,13 @@ class EndPointByLocationTest extends TestCase
 
     private $clientProfile;
 
+    public function testFindProductDomain()
+    {
+        $this->initClient();
+        $domain = $this->locationService->findProductDomain("cn-shanghai", "apigateway", "openAPI", "CloudAPI");
+        $this->assertEquals("apigateway.cn-shanghai.aliyuncs.com", $domain);
+    }
+
     private function initClient()
     {
         # 创建 DefaultAcsClient 实例并初始化
@@ -26,13 +33,6 @@ class EndPointByLocationTest extends TestCase
         );
 
         $this->locationService = new LocationService($this->clientProfile);
-    }
-
-    public function testFindProductDomain()
-    {
-        $this->initClient();
-        $domain = $this->locationService->findProductDomain("cn-shanghai", "apigateway", "openAPI", "CloudAPI");
-        $this->assertEquals("apigateway.cn-shanghai.aliyuncs.com", $domain);
     }
 
     public function testFindProductDomainWithAddEndPoint()

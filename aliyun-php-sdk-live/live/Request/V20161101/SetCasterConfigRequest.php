@@ -19,122 +19,135 @@
  */
 namespace Live\Request\V20161101;
 
-class SetCasterConfigRequest extends \RpcAcsRequest
+use Aliyun\CoreRpcAcsRequest;
+
+class SetCasterConfigRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("live", "2016-11-01", "SetCasterConfig");
-		$this->setMethod("POST");
-	}
+    private $urgentMaterialId;
+    private $transcodeConfig;
+    private $delay;
+    private $securityToken;
+    private $casterName;
+    private $casterId;
+    private $domainName;
+    private $ownerId;
+    private $version;
+    private $recordConfig;
 
-	private  $urgentMaterialId;
+    function __construct()
+    {
+        parent::__construct("live", "2016-11-01", "SetCasterConfig");
+        $this->setMethod("POST");
+    }
 
-	private  $transcodeConfig;
+    public function getUrgentMaterialId()
+    {
+        return $this->urgentMaterialId;
+    }
 
-	private  $delay;
+    public function setUrgentMaterialId($urgentMaterialId)
+    {
+        $this->urgentMaterialId = $urgentMaterialId;
+        $this->queryParameters["UrgentMaterialId"] = $urgentMaterialId;
+    }
 
-	private  $securityToken;
+    public function getTranscodeConfig()
+    {
+        return $this->transcodeConfig;
+    }
 
-	private  $casterName;
+    public function setTranscodeConfig($transcodeConfig)
+    {
+        $this->transcodeConfig = $transcodeConfig;
+        $this->queryParameters["TranscodeConfig"] = $transcodeConfig;
+    }
 
-	private  $casterId;
+    public function getDelay()
+    {
+        return $this->delay;
+    }
 
-	private  $domainName;
+    public function setDelay($delay)
+    {
+        $this->delay = $delay;
+        $this->queryParameters["Delay"] = $delay;
+    }
 
-	private  $ownerId;
+    public function getSecurityToken()
+    {
+        return $this->securityToken;
+    }
 
-	private  $version;
+    public function setSecurityToken($securityToken)
+    {
+        $this->securityToken = $securityToken;
+        $this->queryParameters["SecurityToken"] = $securityToken;
+    }
 
-	private  $recordConfig;
+    public function getCasterName()
+    {
+        return $this->casterName;
+    }
 
-	public function getUrgentMaterialId() {
-		return $this->urgentMaterialId;
-	}
+    public function setCasterName($casterName)
+    {
+        $this->casterName = $casterName;
+        $this->queryParameters["CasterName"] = $casterName;
+    }
 
-	public function setUrgentMaterialId($urgentMaterialId) {
-		$this->urgentMaterialId = $urgentMaterialId;
-		$this->queryParameters["UrgentMaterialId"]=$urgentMaterialId;
-	}
+    public function getCasterId()
+    {
+        return $this->casterId;
+    }
 
-	public function getTranscodeConfig() {
-		return $this->transcodeConfig;
-	}
+    public function setCasterId($casterId)
+    {
+        $this->casterId = $casterId;
+        $this->queryParameters["CasterId"] = $casterId;
+    }
 
-	public function setTranscodeConfig($transcodeConfig) {
-		$this->transcodeConfig = $transcodeConfig;
-		$this->queryParameters["TranscodeConfig"]=$transcodeConfig;
-	}
+    public function getDomainName()
+    {
+        return $this->domainName;
+    }
 
-	public function getDelay() {
-		return $this->delay;
-	}
+    public function setDomainName($domainName)
+    {
+        $this->domainName = $domainName;
+        $this->queryParameters["DomainName"] = $domainName;
+    }
 
-	public function setDelay($delay) {
-		$this->delay = $delay;
-		$this->queryParameters["Delay"]=$delay;
-	}
+    public function getOwnerId()
+    {
+        return $this->ownerId;
+    }
 
-	public function getSecurityToken() {
-		return $this->securityToken;
-	}
+    public function setOwnerId($ownerId)
+    {
+        $this->ownerId = $ownerId;
+        $this->queryParameters["OwnerId"] = $ownerId;
+    }
 
-	public function setSecurityToken($securityToken) {
-		$this->securityToken = $securityToken;
-		$this->queryParameters["SecurityToken"]=$securityToken;
-	}
+    public function getVersion()
+    {
+        return $this->version;
+    }
 
-	public function getCasterName() {
-		return $this->casterName;
-	}
+    public function setVersion($version)
+    {
+        $this->version = $version;
+        $this->queryParameters["Version"] = $version;
+    }
 
-	public function setCasterName($casterName) {
-		$this->casterName = $casterName;
-		$this->queryParameters["CasterName"]=$casterName;
-	}
+    public function getRecordConfig()
+    {
+        return $this->recordConfig;
+    }
 
-	public function getCasterId() {
-		return $this->casterId;
-	}
+    public function setRecordConfig($recordConfig)
+    {
+        $this->recordConfig = $recordConfig;
+        $this->queryParameters["RecordConfig"] = $recordConfig;
+    }
 
-	public function setCasterId($casterId) {
-		$this->casterId = $casterId;
-		$this->queryParameters["CasterId"]=$casterId;
-	}
-
-	public function getDomainName() {
-		return $this->domainName;
-	}
-
-	public function setDomainName($domainName) {
-		$this->domainName = $domainName;
-		$this->queryParameters["DomainName"]=$domainName;
-	}
-
-	public function getOwnerId() {
-		return $this->ownerId;
-	}
-
-	public function setOwnerId($ownerId) {
-		$this->ownerId = $ownerId;
-		$this->queryParameters["OwnerId"]=$ownerId;
-	}
-
-	public function getVersion() {
-		return $this->version;
-	}
-
-	public function setVersion($version) {
-		$this->version = $version;
-		$this->queryParameters["Version"]=$version;
-	}
-
-	public function getRecordConfig() {
-		return $this->recordConfig;
-	}
-
-	public function setRecordConfig($recordConfig) {
-		$this->recordConfig = $recordConfig;
-		$this->queryParameters["RecordConfig"]=$recordConfig;
-	}
-	
 }
