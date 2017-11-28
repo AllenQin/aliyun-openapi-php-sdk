@@ -19,88 +19,98 @@
  */
 namespace Sms\Request\V20160927;
 
-class QuerySmsFailByPageRequest extends \RpcAcsRequest
+use Aliyun\Core\RpcAcsRequest;
+
+class QuerySmsFailByPageRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("Sms", "2016-09-27", "QuerySmsFailByPage");
-	}
+    private $ownerId;
+    private $resourceOwnerAccount;
+    private $resourceOwnerId;
+    private $queryTime;
+    private $pageSize;
+    private $pageNo;
+    private $smsType;
 
-	private  $ownerId;
+    function __construct()
+    {
+        parent::__construct("Sms", "2016-09-27", "QuerySmsFailByPage");
+    }
 
-	private  $resourceOwnerAccount;
+    public function getOwnerId()
+    {
+        return $this->ownerId;
+    }
 
-	private  $resourceOwnerId;
+    public function setOwnerId($ownerId)
+    {
+        $this->ownerId = $ownerId;
+        $this->queryParameters["OwnerId"] = $ownerId;
+    }
 
-	private  $queryTime;
+    public function getResourceOwnerAccount()
+    {
+        return $this->resourceOwnerAccount;
+    }
 
-	private  $pageSize;
+    public function setResourceOwnerAccount($resourceOwnerAccount)
+    {
+        $this->resourceOwnerAccount = $resourceOwnerAccount;
+        $this->queryParameters["ResourceOwnerAccount"] = $resourceOwnerAccount;
+    }
 
-	private  $pageNo;
+    public function getResourceOwnerId()
+    {
+        return $this->resourceOwnerId;
+    }
 
-	private  $smsType;
+    public function setResourceOwnerId($resourceOwnerId)
+    {
+        $this->resourceOwnerId = $resourceOwnerId;
+        $this->queryParameters["ResourceOwnerId"] = $resourceOwnerId;
+    }
 
-	public function getOwnerId() {
-		return $this->ownerId;
-	}
+    public function getQueryTime()
+    {
+        return $this->queryTime;
+    }
 
-	public function setOwnerId($ownerId) {
-		$this->ownerId = $ownerId;
-		$this->queryParameters["OwnerId"]=$ownerId;
-	}
+    public function setQueryTime($queryTime)
+    {
+        $this->queryTime = $queryTime;
+        $this->queryParameters["QueryTime"] = $queryTime;
+    }
 
-	public function getResourceOwnerAccount() {
-		return $this->resourceOwnerAccount;
-	}
+    public function getPageSize()
+    {
+        return $this->pageSize;
+    }
 
-	public function setResourceOwnerAccount($resourceOwnerAccount) {
-		$this->resourceOwnerAccount = $resourceOwnerAccount;
-		$this->queryParameters["ResourceOwnerAccount"]=$resourceOwnerAccount;
-	}
+    public function setPageSize($pageSize)
+    {
+        $this->pageSize = $pageSize;
+        $this->queryParameters["PageSize"] = $pageSize;
+    }
 
-	public function getResourceOwnerId() {
-		return $this->resourceOwnerId;
-	}
+    public function getPageNo()
+    {
+        return $this->pageNo;
+    }
 
-	public function setResourceOwnerId($resourceOwnerId) {
-		$this->resourceOwnerId = $resourceOwnerId;
-		$this->queryParameters["ResourceOwnerId"]=$resourceOwnerId;
-	}
+    public function setPageNo($pageNo)
+    {
+        $this->pageNo = $pageNo;
+        $this->queryParameters["PageNo"] = $pageNo;
+    }
 
-	public function getQueryTime() {
-		return $this->queryTime;
-	}
+    public function getSmsType()
+    {
+        return $this->smsType;
+    }
 
-	public function setQueryTime($queryTime) {
-		$this->queryTime = $queryTime;
-		$this->queryParameters["QueryTime"]=$queryTime;
-	}
+    public function setSmsType($smsType)
+    {
+        $this->smsType = $smsType;
+        $this->queryParameters["SmsType"] = $smsType;
+    }
 
-	public function getPageSize() {
-		return $this->pageSize;
-	}
-
-	public function setPageSize($pageSize) {
-		$this->pageSize = $pageSize;
-		$this->queryParameters["PageSize"]=$pageSize;
-	}
-
-	public function getPageNo() {
-		return $this->pageNo;
-	}
-
-	public function setPageNo($pageNo) {
-		$this->pageNo = $pageNo;
-		$this->queryParameters["PageNo"]=$pageNo;
-	}
-
-	public function getSmsType() {
-		return $this->smsType;
-	}
-
-	public function setSmsType($smsType) {
-		$this->smsType = $smsType;
-		$this->queryParameters["SmsType"]=$smsType;
-	}
-	
 }

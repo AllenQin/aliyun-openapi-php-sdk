@@ -19,88 +19,98 @@
  */
 namespace Sms\Request\V20160927;
 
-class SingleSendSmsRequest extends \RpcAcsRequest
+use Aliyun\Core\RpcAcsRequest;
+
+class SingleSendSmsRequest extends RpcAcsRequest
 {
-	function  __construct()
-	{
-		parent::__construct("Sms", "2016-09-27", "SingleSendSms");
-	}
+    private $ownerId;
+    private $resourceOwnerAccount;
+    private $resourceOwnerId;
+    private $signName;
+    private $templateCode;
+    private $recNum;
+    private $paramString;
 
-	private  $ownerId;
+    function __construct()
+    {
+        parent::__construct("Sms", "2016-09-27", "SingleSendSms");
+    }
 
-	private  $resourceOwnerAccount;
+    public function getOwnerId()
+    {
+        return $this->ownerId;
+    }
 
-	private  $resourceOwnerId;
+    public function setOwnerId($ownerId)
+    {
+        $this->ownerId = $ownerId;
+        $this->queryParameters["OwnerId"] = $ownerId;
+    }
 
-	private  $signName;
+    public function getResourceOwnerAccount()
+    {
+        return $this->resourceOwnerAccount;
+    }
 
-	private  $templateCode;
+    public function setResourceOwnerAccount($resourceOwnerAccount)
+    {
+        $this->resourceOwnerAccount = $resourceOwnerAccount;
+        $this->queryParameters["ResourceOwnerAccount"] = $resourceOwnerAccount;
+    }
 
-	private  $recNum;
+    public function getResourceOwnerId()
+    {
+        return $this->resourceOwnerId;
+    }
 
-	private  $paramString;
+    public function setResourceOwnerId($resourceOwnerId)
+    {
+        $this->resourceOwnerId = $resourceOwnerId;
+        $this->queryParameters["ResourceOwnerId"] = $resourceOwnerId;
+    }
 
-	public function getOwnerId() {
-		return $this->ownerId;
-	}
+    public function getSignName()
+    {
+        return $this->signName;
+    }
 
-	public function setOwnerId($ownerId) {
-		$this->ownerId = $ownerId;
-		$this->queryParameters["OwnerId"]=$ownerId;
-	}
+    public function setSignName($signName)
+    {
+        $this->signName = $signName;
+        $this->queryParameters["SignName"] = $signName;
+    }
 
-	public function getResourceOwnerAccount() {
-		return $this->resourceOwnerAccount;
-	}
+    public function getTemplateCode()
+    {
+        return $this->templateCode;
+    }
 
-	public function setResourceOwnerAccount($resourceOwnerAccount) {
-		$this->resourceOwnerAccount = $resourceOwnerAccount;
-		$this->queryParameters["ResourceOwnerAccount"]=$resourceOwnerAccount;
-	}
+    public function setTemplateCode($templateCode)
+    {
+        $this->templateCode = $templateCode;
+        $this->queryParameters["TemplateCode"] = $templateCode;
+    }
 
-	public function getResourceOwnerId() {
-		return $this->resourceOwnerId;
-	}
+    public function getRecNum()
+    {
+        return $this->recNum;
+    }
 
-	public function setResourceOwnerId($resourceOwnerId) {
-		$this->resourceOwnerId = $resourceOwnerId;
-		$this->queryParameters["ResourceOwnerId"]=$resourceOwnerId;
-	}
+    public function setRecNum($recNum)
+    {
+        $this->recNum = $recNum;
+        $this->queryParameters["RecNum"] = $recNum;
+    }
 
-	public function getSignName() {
-		return $this->signName;
-	}
+    public function getParamString()
+    {
+        return $this->paramString;
+    }
 
-	public function setSignName($signName) {
-		$this->signName = $signName;
-		$this->queryParameters["SignName"]=$signName;
-	}
+    public function setParamString($paramString)
+    {
+        $this->paramString = $paramString;
+        $this->queryParameters["ParamString"] = $paramString;
+    }
 
-	public function getTemplateCode() {
-		return $this->templateCode;
-	}
-
-	public function setTemplateCode($templateCode) {
-		$this->templateCode = $templateCode;
-		$this->queryParameters["TemplateCode"]=$templateCode;
-	}
-
-	public function getRecNum() {
-		return $this->recNum;
-	}
-
-	public function setRecNum($recNum) {
-		$this->recNum = $recNum;
-		$this->queryParameters["RecNum"]=$recNum;
-	}
-
-	public function getParamString() {
-		return $this->paramString;
-	}
-
-	public function setParamString($paramString) {
-		$this->paramString = $paramString;
-		$this->queryParameters["ParamString"]=$paramString;
-	}
-	
 }
