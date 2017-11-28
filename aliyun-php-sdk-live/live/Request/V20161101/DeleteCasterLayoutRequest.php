@@ -19,7 +19,7 @@
  */
 namespace Live\Request\V20161101;
 
-use Aliyun\CoreRpcAcsRequest;
+use Aliyun\Core\RpcAcsRequest;
 
 class DeleteCasterLayoutRequest extends RpcAcsRequest
 {

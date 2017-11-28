@@ -1,6 +1,10 @@
 <?php
 namespace Aliyun\Core;
 
+use Aliyun\Core\Regions\LocationService;
+use Aliyun\Core\Regions\EndpointProvider;
+use Aliyun\Core\Http\HttpHelper;
+
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file

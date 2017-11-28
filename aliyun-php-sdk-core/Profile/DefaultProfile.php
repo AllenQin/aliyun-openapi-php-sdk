@@ -1,6 +1,9 @@
 <?php
 namespace Aliyun\Core\Profile;
 
+use Aliyun\Core\Auth\Credential;
+use Aliyun\Core\Auth\ShaHmac1Signer;
+
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
