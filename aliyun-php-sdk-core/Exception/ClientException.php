@@ -19,7 +19,7 @@ namespace Aliyun\Core\Exception;
  * specific language governing permissions and limitations
  * under the License.
  */
-class ClientException extends Exception
+class ClientException extends \Exception
 {
     private $errorCode;
     private $errorMessage;
