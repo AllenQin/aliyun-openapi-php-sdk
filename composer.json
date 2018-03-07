@@ -1,7 +1,7 @@
 {
     "name": "allenqin/aliyun-openapi-php-sdk",
     "description": "Alibaba Cloud SDK for PHP",
-    "license": "Apache License 2.0",
+    "license": "Apache-2.0",
     "authors": [{
         "name": "allenqin",
         "email": "allenqinhai@gmail.com"
