@@ -5,6 +5,7 @@ use Aliyun\Core\Regions\LocationService;
 use Aliyun\Core\Regions\EndpointProvider;
 use Aliyun\Core\Http\HttpHelper;
 use Aliyun\Core\Exception\ServerException;
+use Aliyun\Core\Exception\ClientException;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
