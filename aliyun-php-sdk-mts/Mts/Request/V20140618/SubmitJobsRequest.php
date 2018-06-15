@@ -18,8 +18,9 @@
  * under the License.
  */
 namespace Mts\Request\V20140618;
+use Aliyun\Core\RpcAcsRequest;
 
-class SubmitJobsRequest extends \RpcAcsRequest
+class SubmitJobsRequest extends RpcAcsRequest
 {
 	function  __construct()
 	{
